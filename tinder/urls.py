@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tinderapp.views import register,login
+import tinderapp.views as views
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/',register),
-    path('/',login)
+    path('register/',views.register),
+    path('/',views.login),
+    path('style',views.style),
+    path('signup',csrf_exempt(views.signup))
 ]

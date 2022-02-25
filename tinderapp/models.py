@@ -1,14 +1,13 @@
 from django.db import models
 from matplotlib.pyplot import connect
-from tinderapp.auth import register
+import tinderapp.auth as auth
 from tinderapp.database import create_connection
 
-db_file = "../db.sqlite3"
+
 # Create your models here.
 
-conn = create_connection(db_file)
 
-def register(username, password, conn):
-    register(username,password,conn)
+def register(username,email, password):
+    auth.register(username,email,password)
 
 
