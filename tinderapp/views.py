@@ -1,7 +1,9 @@
 from ipaddress import ip_address
+import re
 from django.shortcuts import render
 import tinderapp.auth as auth
 import tinderapp.models as models
+import tinderapp.discovery as discovery
 
 # Create your views here.
 def register(request):
@@ -39,6 +41,8 @@ def login(request):
         if auth.check_password(email,password):
             response = render(request,'discovery/discovery.html')
             response.set_cookie('email',email)
+            likeList = discovery.list_recommended_people(email)
+            response.set_cookie('people_who_like',likeList)
             return response
     
     # update location
@@ -49,3 +53,16 @@ def login(request):
 
 def style(request):
     return render(request,'login&register/style.css')
+
+def like(request):
+    # Add to like list
+    likeFrom = request.COOIES.get('email')
+    likeList = request.COOIES.get('people_who_like')
+    likeIndex = request.COOIES.get('like_index')
+    response = render(request,'discovery/discovery.html')
+    discovery.like(likeFrom, likeList[likeIndex])
+    # Increment like index
+    newLikeIndex = likeIndex + 1
+    response.set_cookie('like_index',newLikeIndex)
+
+    return response
