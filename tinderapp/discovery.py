@@ -17,10 +17,10 @@ def list_recommended_people(email):
         from Users
         where email != '{email}' 
             and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) >= {min_age}
-            and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) <= {max_age}
-            and (people_who_like is null or not people_who_like like '%email1%');
+            and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) <= {max_age}     
     """
-    print("Hi---------------------------------------------")
+    # and (people_who_like is null or not people_who_like like '%email1%');
+
     print(sql)
     people = query(sql)
 

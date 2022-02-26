@@ -44,10 +44,12 @@ def submit_profile(request):
     return response
 
 def discovery_page(request):
-    if request.COOKIES.get('num_of_discover') == 0:
+    if get_discover_index(request) >= int(request.COOKIES.get('num_of_discover')):
         return HttpResponse("No one to discover")
     dic = discovered_info(request)
-    return render(request,'discovery/discovery.html',dic)
+    response = render(request,'discovery/discovery.html',dic)
+    update_discover_index(request,response)
+    return response
 
 def login(request):
     if request.method == 'POST':
@@ -92,6 +94,8 @@ def discovered_info(request):
     return dic
 
 def like(request):
+    if get_discover_index(request) >= int(request.COOKIES.get('num_of_discover')):
+        return HttpResponse("No one to discover")
     # Add to like list
     likeFrom = request.COOKIES.get('email')
     dic = discovered_info(request)
@@ -101,6 +105,8 @@ def like(request):
     return response
 
 def dislike(request):
+    if get_discover_index(request) >= int(request.COOKIES.get('num_of_discover')):
+        return HttpResponse("No one to discover")
     dic = discovered_info(request)
     response = render(request,'discovery/discovery.html',dic)
     update_discover_index(request,response)
@@ -120,8 +126,9 @@ def update_discover_index(request,response):
 
 def discover_start(request,response,email):
     response.set_cookie('discover_index',0)
-    likeStr = '-'.join([elem[0] for elem in discovery.list_recommended_people(email)])
-    response.set_cookie('num_of_discover',len(likeStr.split('-')))
+    recommended = discovery.list_recommended_people(email)
+    likeStr = '-'.join([elem[0] for elem in recommended])
+    response.set_cookie('num_of_discover',len(recommended))
     response.set_cookie('people_who_like',likeStr)
 
 def discover_next(request):
