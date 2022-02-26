@@ -13,17 +13,24 @@ def list_recommended_people(email):
     
     # get people within interest and age preference
     sql = f"""
-        select username,latitude,longitude,description,picture,max_radius,interest,birthday
+        select email,interest
         from Users
-        where interest like '%{interest}%' 
-            and email != '{email}' 
-            and cast(strftime('%Y.%m%d', 'now') - strftime('%Y.%m%d', dob) as int) >= min_age
-            and cast(strftime('%Y.%m%d', 'now') - strftime('%Y.%m%d', dob) as int) <= max_age
-            and not people_who_like like '%{email}%';
+        where email != '{email}' 
+            and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) >= {min_age}
+            and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) <= {max_age}
+            and (people_who_like is null or not people_who_like like '%email1%');
     """
+    print("Hi---------------------------------------------")
+    print(sql)
     people = query(sql)
 
-    recommended_list = people
+    recommended_list = []
+    for person in people:
+        for sport in interest.split(','):
+            if sport in person[1]:
+                recommended_list.append(person)
+                break
+    
     # filter people that is within age
     # for person in people:
     #     username,other_latitude,other_longitude,description,picture,other_max_radius,interest = person
@@ -32,8 +39,8 @@ def list_recommended_people(email):
     #         recommended_people.append(person)
     
     # Return a list
-    recommended_people = ",".join(str(x) for x in recommended_list)
-    return recommended_people
+    print(recommended_list)
+    return recommended_list
 
 def like(likeFrom, likeTo):
     sql = f"""

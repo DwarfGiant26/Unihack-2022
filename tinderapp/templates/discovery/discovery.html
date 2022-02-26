@@ -20,9 +20,9 @@
 
         <div style="margin-top: 35px;" id="card">
             <img src="https://picsum.photos/200"/>
-            <h1>John Smith</h1>
+            <h1>{{name}}</h1>
             <p>I like playing sports.</p>
-            <p>Interested in tennis, badminton, soccer etc.</p>
+            <p>Interested in {{interests}} ,etc.</p>
 
             <!-- <span>travel distance (km): 
                 <div class="slidecontainer">
@@ -31,8 +31,13 @@
             </span> -->
         
             <div style='display: inline-block;'>
-                <button  class="ori">❤</button>
-                <button   class="ori">X</button>
+                <form action="/like">
+                    <button class="ori">❤</button>
+                </form>
+                <form action="/dislike">
+                    <button class="ori">X</button>
+                </form>
+                
             </div>
 
         </div>
