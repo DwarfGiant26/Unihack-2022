@@ -1,41 +1,49 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
-
     <head>
-        <link rel="stylesheet" type="text/css" href="{% static 'nav_bar.css' %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static 'discovery/discovery.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="../nav_bar.css"/>
+        <link rel="stylesheet" type="text/css" href="discovery.css"/>
     </head>
-
     <body style="background-color:rgb(169, 214, 231); text-align: center;">
-
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="/preference">Preference</a>
-            <a href="/discovery">Discovery</a>
-            <a href="/profile">Profile</a>
+            <a  class="active" href="#discovery">Discovery</a>
+            <a href="#chat">Chat</a>
+            <a href="#profile">Profile</a>
+            <a href="#settings">Settings</a>
         </div>
-
         <div id="gradient"></div>
-
         <div style="margin-top: 35px;" id="card">
-            <img src="https://picsum.photos/200"/>
-            <h1>John Smith</h1>
-            <p>I like playing sports.</p>
-            <p>Interested in tennis, badminton, soccer etc.</p>
-
-            <!-- <span>travel distance (km): 
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-            </span> -->
+        <img src="Person.jpg"/>
+        <h1>{{name}}</h1>
+        <p>Age: {{age}}</p>
+        <p>Interests: {{interests}}</p>
+        <p>Distance from you: {{distance}}</p>
+        <p>Availabilities: {{availabilities}}</p>
+        <p>Description: {{description}}</p>
         
-            <div style='display: inline-block;'>
-                <button  class="ori">❤</button>
-                <button   class="ori">X</button>
+         <!-- <span class="left bottom">travel distance (km): 
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
             </div>
+        </span>
+         <span>
+            <p>Do you prefer indoor or outdoor:</p>
+            <div>
+                <input type="checkbox" id="Indoor" name="Indoor">
+                <label for="Indoor">Indoor</label>
+                <input type="checkbox" id="Outdoor" name="Outdoor">
+                <label for="Outdoor">Outdoor</label>
+            </div>
+        </span> -->
 
+                <div id="buttonzone">
+                    
+                        <input type="submit" name="submit" value="❤" id="likebutton" style=" position:absolute; bottom:5%; right:30%;">
+                
+                        <input type="submit" name="signup" value="X" id="dislikebutton" style=" position:absolute; bottom:5%; right:16.5%">
+                    </div>
+                    
+            </div>
         </div>
-
     </body>
 </html>

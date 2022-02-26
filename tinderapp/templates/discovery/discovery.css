@@ -22,16 +22,16 @@ body {
 }
 
 #gradient {
-  background: #999955;
+  background: #556799;
   background-image: linear-gradient(
-    #dab046 20%,
-    #d73b25 20%,
-    #d73b25 40%,
-    #c71b25 40%,
-    #c71b25 60%,
-    #961a39 60%,
-    #961a39 80%,
-    #601035 80%
+    #79c8db 20%,
+    #6e9fd8 20%,
+    #7b9bd6 40%,
+    #5b6bb4 40%,
+    #5d65aa 60%,
+    #38408b 60%,
+    #35375f 80%,
+    #26223f 80%
   );
   margin: 0 auto;
   margin-top: 30%;
@@ -67,18 +67,20 @@ body {
 }
 
 #card img {
-  width: 350px;
-  height: 400px;
+  width: 45%;
+  height: 100%;
+  object-fit: cover;
   float: left;
   border-radius: 5px;
   margin-right: 20px;
-  -webkit-filter: sepia(1);
-  -moz-filter: sepia(1);
-  filter: sepia(1);
+}
+
+h1{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #card h2 {
-  font-family: courier;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #333;
   margin: 0 auto;
   padding: 0;
@@ -86,44 +88,22 @@ body {
 }
 
 #card p {
-  font-family: courier;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #555;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 #card span {
-  font-family: courier;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 p,
 label {
-  font: 1rem 'Fira Sans', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 input {
   margin: 0.4rem;
-}
-
-button {
-  border: 0.2rem solid #444857;
-  border-radius: 0.25rem;
-  margin-top: 100px;
-  margin-left: 25px;
-  height: 2.75rem;
-  width: 3.5rem;
-  line-height: 2.5rem;
-  font-size: 1.2rem;
-  color: #adafbc;
-  background-color: transparent;
-  transition: transform 50ms;
-}
-
-button:hover {
-  background-color: #5a5f73;
-}
-
-button:active {
-  transform: translateY(0.1rem);
 }
 
 .small {
@@ -141,4 +121,26 @@ button:active {
 
 .test {
   display: inline;
+}
+#likebutton,
+#dislikebutton {
+    display: inline;
+    height: 60px;
+    width: 60px;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+    line-height: 36px;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    background-color: #adafbc;
+    border: 0.2rem solid #444857;
+    border-radius: 2rem;
+   
+}
+
+#likebutton:hover,
+#dislikebutton:hover{
+  background-color: #5a5f73;
 }
