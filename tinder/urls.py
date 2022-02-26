@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tinderapp.discovery import like
 import tinderapp.views as views
 from django.views.decorators.csrf import csrf_exempt
 
@@ -25,5 +26,6 @@ urlpatterns = [
     path('style',views.style),
     path('signup',csrf_exempt(views.signup)),
     path('login',csrf_exempt(views.login)),
-    path('submit_profile',csrf_exempt(views.submit_profile))
+    path('submit_profile',csrf_exempt(views.submit_profile)),
+    path('like', csrf_exempt(views.like))
 ]

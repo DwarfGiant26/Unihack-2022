@@ -41,8 +41,8 @@ def login(request):
         if auth.check_password(email,password):
             response = render(request,'discovery/discovery.html')
             response.set_cookie('email',email)
-            likeList = discovery.list_recommended_people(email)
-            response.set_cookie('people_who_like',likeList)
+            likeStr = discovery.list_recommended_people(email)
+            response.set_cookie('people_who_like',likeStr)
             return response
     
     # update location
@@ -57,7 +57,8 @@ def style(request):
 def like(request):
     # Add to like list
     likeFrom = request.COOIES.get('email')
-    likeList = request.COOIES.get('people_who_like')
+    likeStr = request.COOIES.get('people_who_like')
+    likeList = list(likeStr.spilt(","))
     likeIndex = request.COOIES.get('like_index')
     response = render(request,'discovery/discovery.html')
     discovery.like(likeFrom, likeList[likeIndex])
@@ -66,3 +67,5 @@ def like(request):
     response.set_cookie('like_index',newLikeIndex)
 
     return response
+
+
