@@ -12,7 +12,12 @@ def signup(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     auth.register(username,email,password)
-    return render(request,'login&register/index.html')
+    dic = {
+        "name": username,
+        "email": email,
+        "password": password,
+    }
+    return render(request,'ProfileSettings/ProfileSettings.html',dic)
     
 def login(request):
     if request.method == 'POST':
