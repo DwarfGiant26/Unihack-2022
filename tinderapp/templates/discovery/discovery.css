@@ -34,34 +34,32 @@ body {
     #601035 80%
   );
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 30%;
   width: 100%;
-  height: 150px;
+  height: 250px;
 }
 
-#gradient:after {
+/* #gradient:after {
   content: '';
   position: absolute;
   background: #e9e2d0;
   left: 50%;
-  margin-top: -67.5px;
-  margin-left: -270px;
-  padding-left: 20px;
-  border-radius: 5px;
-  width: 520px;
-  height: 275px;
+  margin-top: 10%;
+  margin-left: 10%;
+  padding-left: 10%;
+  border-radius: 10%;
+  width: 80%;
+  height: 80%;
   z-index: -1;
-}
+} */
 
 #card {
   position: absolute;
-  width: 550px;
-  height: 325px;
-  padding: 25px;
-  padding-top: 0;
-  padding-bottom: 0;
-  left: 50%;
-  top: 67.5px;
+  width: 60%;
+  height: 60%;
+  padding: 20px;
+  left: 38%;
+  top: 15%;
   margin-left: -250px;
   background: #e9e2d0;
   box-shadow: -20px 0 35px -25px black, 20px 0 35px -25px black;
@@ -69,7 +67,8 @@ body {
 }
 
 #card img {
-  width: 150px;
+  width: 350px;
+  height: 400px;
   float: left;
   border-radius: 5px;
   margin-right: 20px;
@@ -109,7 +108,7 @@ button {
   border: 0.2rem solid #444857;
   border-radius: 0.25rem;
   margin-top: 50px;
-  margin-left: 400px;
+  margin-left: 200px;
   height: 2.75rem;
   width: 3.5rem;
   line-height: 2.5rem;
@@ -138,4 +137,8 @@ button:active {
 .large {
   font-size: 1.8rem;
   color: #ff3c41;
+}
+
+.test {
+  display: inline;
 }
