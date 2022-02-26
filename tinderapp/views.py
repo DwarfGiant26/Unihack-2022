@@ -68,4 +68,5 @@ def like(request):
 
     return response
 
-
+def dislike(request):
+    return render(request,'discovery/discovery.html')
