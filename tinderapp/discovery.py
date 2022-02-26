@@ -13,14 +13,14 @@ def list_recommended_people(email):
     
     # get people within interest preference
     sql = f"""
-        select username,latitude,longitude,description,picture,max_radius,interest
+        select username,latitude,longitude,description,picture,max_radius,interest,birthday
         from Users
         where interest like '%{interest}%' and email != '{email}';
     """
     people = query(sql)
 
     recommended_people = []
-    # filter people that is within distance
+    # filter people that is within distance and age
     for person in people:
         username,other_latitude,other_longitude,description,picture,other_max_radius,interest = person
         distance = dist.vincenty((latitude,longitude),(other_latitude,other_longitude)).km

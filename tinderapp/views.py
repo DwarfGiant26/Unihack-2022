@@ -29,7 +29,7 @@ def submit_profile(request):
     max_age = request.POST.get('max_age')
     models.update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age)
 
-    return render(request,'login&register/index.html')
+    return render(request,'discovery/discovery.html')
 
 def login(request):
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def login(request):
     # ip = request.META.get("REMOTE_ADDR")
     # models.update_location(ip)
 
-    return render(request,'login&register/index.html')
+    return render(request,'discovery/discovery.html')
 
 def style(request):
     return render(request,'login&register/style.css')
