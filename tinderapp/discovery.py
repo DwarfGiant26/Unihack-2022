@@ -28,3 +28,14 @@ def list_recommended_people(email):
             recommended_people.append(person)
     
     return recommended_people
+
+def like(likeFrom, likeTo):
+    sql = f"""
+        UPDATE Users
+        SET people_who_like = '{likeFrom}'
+        WHERE email = '{likeTo}';   
+    """
+    execute(sql)
+
+
+   
