@@ -19,14 +19,16 @@ def list_recommended_people(email):
     """
     people = query(sql)
 
-    recommended_people = []
+    recommended_list = []
     # filter people that is within distance and age
     for person in people:
         username,other_latitude,other_longitude,description,picture,other_max_radius,interest = person
         distance = dist.vincenty((latitude,longitude),(other_latitude,other_longitude)).km
         if (max_radius == 'None' or distance < max_radius) and (other_max_radius == 'None' or distance < other_max_radius):
-            recommended_people.append(person)
+            recommended_list.append(person)
     
+    # Return a list
+    recommended_people = ",".join(str(x) for x in recommended_list)
     return recommended_people
 
 def like(likeFrom, likeTo):
