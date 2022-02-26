@@ -1,3 +1,4 @@
+from ipaddress import ip_address
 from django.shortcuts import render
 import tinderapp.auth as auth
 import tinderapp.models as models
@@ -22,6 +23,11 @@ def login(request):
             response = render(request,'discovery.html')
             response.set_cookie('email',email)
             return response
+    
+    # update location
+    ip = request.META.get("REMOTE_ADDR")
+    models.update_location(ip)
+
     return render(request,'login&register/index.html')
 
 def style(request):
