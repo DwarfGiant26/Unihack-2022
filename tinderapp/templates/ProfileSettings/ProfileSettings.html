@@ -28,7 +28,7 @@
                 
                 <div class="container">
                     
-                    <form>
+                    <form action="/submit_profile" method="post">
 
                         <h2 class="mt-5 mb-5">About You</h2>
                 
@@ -43,13 +43,13 @@
                         <div class="form-group">
 
                             <label for=email>Email</label>
-                            <input type="email" name="name" value="{{email}}" class="form-control" id="email">
+                            <input type="text" name="email" value="{{email}}" class="form-control" id="email">
 
                         </div>
                         <div class="form-group">
 
                             <label for=pass>Password</label>
-                            <input type="password" name="name" value="{{password}}" class="form-control" id="pass">
+                            <input type="password" name="password" value="{{password}}" class="form-control" id="pass">
 
                         </div>
                         <div class="form-group ">
@@ -79,37 +79,37 @@
                             <label>Interests</label>
 
                             <label class="container">AFL
-                                <input type="checkbox" checked="checked">
+                                <input type="checkbox" name="interest" checked="checked">
                                 <span class="checkmark"></span>
                               </label>
                               
                               <label class="container">Badminton
-                                <input type="checkbox">
+                                <input type="checkbox" name="interest">
                                 <span class="checkmark"></span>
                               </label>
 
                               <label class="container">Basketball
-                                <input type="checkbox">
+                                <input type="checkbox" name="interest">
                                 <span class="checkmark"></span>
                               </label>
                               
                               <label class="container">Jogging
-                                <input type="checkbox">
+                                <input type="checkbox" name="interest">
                                 <span class="checkmark"></span>
                               </label>
                               
                               <label class="container">Soccer
-                                <input type="checkbox">
+                                <input type="checkbox" name="interest">
                                 <span class="checkmark"></span>
                               </label>
                               
                               <label class="container">Surfing
-                                <input type="checkbox">
+                                <input type="checkbox" name="interest">
                                 <span class="checkmark"></span>
                               </label>
 
                               <label class="container">Tennis
-                                <input type="checkbox">
+                                <input type="checkbox" name="interest">
                                 <span class="checkmark"></span>
                               </label>
 
@@ -119,14 +119,14 @@
                         <div class="form-group">
 
                             <label for=age>Minimum Age</label>
-                            <input type="text" class="form-control" id="age">
+                            <input type="text" name="min_age" class="form-control" id="age">
 
                         </div>
                         
                         <div class="form-group">
 
                             <label for=age>Maximum Age</label>
-                            <input type="text" name="age" class="form-control" id="age">
+                            <input type="text" name="max_age" class="form-control" id="age">
 
                         </div>
                         

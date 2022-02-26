@@ -1,3 +1,4 @@
+from ipaddress import ip_address
 from django.shortcuts import render
 import tinderapp.auth as auth
 import tinderapp.models as models
@@ -17,16 +18,33 @@ def signup(request):
         "password": password,
     }
     return render(request,'ProfileSettings/ProfileSettings.html',dic)
-    
+
+def submit_profile(request):
+    email = request.POST.get('email')
+    birthday = request.POST.get('birthday')
+    postcode = request.POST.get('postcode')
+    travel_dist = request.POST.get('travel_dist')
+    interest = ','.join(request.POST.getlist('interest'))
+    min_age = request.POST.get('min_age')
+    max_age = request.POST.get('max_age')
+    models.update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age)
+
+    return render(request,'login&register/index.html')
+
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
         print(email)
         if auth.check_password(email,password):
-            response = render(request,'discovery.html')
+            response = render(request,'discovery/discovery.html')
             response.set_cookie('email',email)
             return response
+    
+    # update location
+    # ip = request.META.get("REMOTE_ADDR")
+    # models.update_location(ip)
+
     return render(request,'login&register/index.html')
 
 def style(request):
