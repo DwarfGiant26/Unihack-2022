@@ -321,25 +321,25 @@
   
   !function() {
     var data = [
-      { eventName: 'Badminton with Tom', calendar: 'User2', color: 'orange' },
-      { eventName: 'Badminton with Tom', calendar: 'User2', color: 'orange' },
-      { eventName: 'Badminton with Tom', calendar: 'User2', color: 'orange' },
-      { eventName: 'Badminton with Tom', calendar: 'User2', color: 'orange' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'orange' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'orange' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'orange' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'orange' },
   
-      { eventName: 'Game vs Portalnd', calendar: 'User5', color: 'blue' },
-      { eventName: 'Game vs Houston', calendar: 'User5', color: 'blue' },
-      { eventName: 'Game vs Denver', calendar: 'User5', color: 'blue' },
-      { eventName: 'Badminton with Tom', calendar: 'User5', color: 'blue' },
+      { eventName: 'Game vs Portalnd', calendar: 'Lucy', color: 'blue' },
+      { eventName: 'Game vs Houston', calendar: 'Lucy', color: 'blue' },
+      { eventName: 'Game vs Denver', calendar: 'Lucy', color: 'blue' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'blue' },
   
-      { eventName: 'Badminton with Tom', calendar: 'User1', color: 'yellow' },
-      { eventName: 'Badminton with Tom', calendar: 'User2', color: 'orange' },
-      { eventName: 'Pick up from Soccer Practice', calendar: 'User3', color: 'yellow' },
-      { eventName: 'Badminton with Tom', calendar: 'User4', color: 'green' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'yellow' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'orange' },
+      { eventName: 'Pick up from Soccer Practice', calendar: 'Nancy', color: 'yellow' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'green' },
   
-      { eventName: 'Tennis Night', calendar: 'User4', color: 'green' },
-      { eventName: 'Bowling Team', calendar: 'User4', color: 'green' },
-      { eventName: 'Badminton with Tom', calendar: 'User4', color: 'green' },
-      { eventName: 'Badminton with Tom', calendar: 'User4', color: 'green' }
+      { eventName: 'Tennis Night', calendar: 'Joanna', color: 'green' },
+      { eventName: 'Bowling Team', calendar: 'Jack', color: 'green' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'green' },
+      { eventName: 'Badminton with Tom', calendar: 'Tom', color: 'green' }
     ];
   
     
