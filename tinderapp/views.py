@@ -45,7 +45,7 @@ def login(request):
     # ip = request.META.get("REMOTE_ADDR")
     # models.update_location(ip)
 
-    return render(request,'discovery/discovery.html')
+    return render(request,'login&register/index.html')
 
 def style(request):
     return render(request,'login&register/style.css')
