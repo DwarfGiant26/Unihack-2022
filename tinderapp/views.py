@@ -17,6 +17,9 @@ def signup(request):
         "email": email,
         "password": password,
     }
+    return profile_settings(request,dic)
+
+def profile_settings(request,dic=None):
     return render(request,'ProfileSettings/ProfileSettings.html',dic)
 
 def submit_profile(request):
@@ -29,6 +32,9 @@ def submit_profile(request):
     max_age = request.POST.get('max_age')
     models.update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age)
 
+    return discovery(request)
+
+def discovery(request):
     return render(request,'discovery/discovery.html')
 
 def login(request):

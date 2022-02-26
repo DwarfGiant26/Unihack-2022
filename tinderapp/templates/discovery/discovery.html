@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="../nav_bar.css"/>
-        <link rel="stylesheet" type="text/css" href="discovery.css"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'nav_bar.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'discovery/discovery.css' %}"/>
     </head>
 
     <body style="background-color:rgb(169, 214, 231); text-align: center;">
 
         <div class="topnav">
             <a class="active" href="#home">Home</a>
-            <a href="#news">Preference</a>
-            <a href="#contact">Discovery</a>
-            <a href="#about">Profile</a>
+            <a href="/preference">Preference</a>
+            <a href="/discovery">Discovery</a>
+            <a href="/profile">Profile</a>
         </div>
 
         <div id="gradient"></div>
