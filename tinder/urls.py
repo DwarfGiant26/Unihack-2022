@@ -23,5 +23,6 @@ urlpatterns = [
     path('register/',views.register),
     path('/',views.login),
     path('style',views.style),
-    path('signup',csrf_exempt(views.signup))
+    path('signup',csrf_exempt(views.signup)),
+    path('login',csrf_exempt(views.login)),
 ]
