@@ -105,19 +105,19 @@ input {
   margin: 0.4rem;
 }
 
-button {
+/* button {
   border: 0.2rem solid #444857;
   border-radius: 0.25rem;
-  margin-top: 50px;
-  margin-left: 400px;
-  height: 2.75rem;
+  margin-top: 0px;
+  margin-left: 50px;
+  height: 4rem;
   width: 3.5rem;
-  line-height: 2.5rem;
+  line-height: 5rem;
   font-size: 1.2rem;
   color: #adafbc;
   background-color: transparent;
   transition: transform 50ms;
-}
+} */
 
 button:hover {
   background-color: #5a5f73;
