@@ -13,6 +13,7 @@ def check_password(email,password):
         from Users
         where email='{email}' and password='{password}';
     """
+    print(query(sql))
     if len(query(sql)) == 0:
         return False
     return True
