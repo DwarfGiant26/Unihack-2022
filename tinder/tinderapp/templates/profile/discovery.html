@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="nav_bar.css"/>
-  </head>
-<body style="background-color:rgb(169, 214, 231); text-align: center;">
-  <div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#news">Preference</a>
-    <a href="#contact">Discovery</a>
-    <a href="#about">Profile</a>
-  </div>
-  
-</body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="nav_bar.css"/>
+        <link rel="stylesheet" type="text/css" href="discovery.css"/>
+    </head>
+    <body style="background-color:rgb(169, 214, 231); text-align: center;">
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">Preference</a>
+            <a href="#contact">Discovery</a>
+            <a href="#about">Profile</a>
+        </div>
+        <div id="gradient"></div>
+        <div style="margin-top: 35px;" id="card">
+        <img src="https://picsum.photos/200"/>
+        <h2>John Smith</h2>
+        <p>I like playing sports.</p>
+        <p>Interested in tennis, badminton, soccer etc.</p>
+        <span class="left bottom">travel distance (km): 
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+        </span>
+        <span>
+            <p>Do you prefer indoor or outdoor:</p>
+            <div>
+                <input type="checkbox" id="Indoor" name="Indoor">
+                <label for="Indoor">Indoor</label>
+                <input type="checkbox" id="Outdoor" name="Outdoor">
+                <label for="Outdoor">Outdoor</label>
+            </div>
+        </span>
+        <button class="ori">❤</button>
+        </div>
+    </body>
 </html>
