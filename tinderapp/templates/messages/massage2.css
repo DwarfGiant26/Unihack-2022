@@ -1,7 +1,7 @@
 .container{max-width:1170px; margin:auto;}
 img{ max-width:100%;}
 .inbox_people {
-  background: #f8f8f8 none repeat scroll 0 0;
+  background:  #D9E4EC none repeat scroll 0 0;
   float: left;
   overflow: hidden;
   width: 40%; border-right:1px solid #c4c4c4;
@@ -93,7 +93,7 @@ img{ max-width:100%;}
 }
 
  .sent_msg p {
-  background: #05728f none repeat scroll 0 0;
+  background: #023f50 none repeat scroll 0 0;
   border-radius: 3px;
   font-size: 14px;
   margin: 0; color:#fff;
@@ -114,12 +114,12 @@ img{ max-width:100%;}
   width: 100%;
 }
 
-.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.type_msg {border-top: 1px solid #B7CFDC;position: relative;}
 .msg_send_btn {
-  background: #05728f none repeat scroll 0 0;
+  background: #023f50 none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;
-  color: #fff;
+  color: #B7CFDC;
   cursor: pointer;
   font-size: 17px;
   height: 33px;
