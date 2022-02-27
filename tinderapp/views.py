@@ -27,11 +27,11 @@ def signup(request):
 def profile_settings(request,dic=None):
     if dic == None:
         sql=f"""
-            select username,email,password,birthday,postcode,max_radius,interest,min_age,max_age
+            select username,email,password,birthday,postcode,max_radius,interest,min_age,max_age,description
             from Users
             where email='{request.COOKIES.get('email')}'
         """
-        name,email,password,birthday,postcode,max_radius,interest,min_age,max_age = query(sql)[0]
+        name,email,password,birthday,postcode,max_radius,interest,min_age,max_age,description = query(sql)[0]
         dic = {
             "name":name,
             "email":email,
@@ -40,7 +40,8 @@ def profile_settings(request,dic=None):
             "postcode":postcode,
             "max_dist":max_radius,
             "min_age":min_age,
-            "max_age":max_age
+            "max_age":max_age,
+            "description":description,
         }
     return render(request,'ProfileSettings-Arif/profile-settings.html',dic)
 
@@ -67,7 +68,8 @@ def submit_profile(request):
     min_age = request.POST.get('min_age')
     max_age = request.POST.get('max_age')
     description = request.POST.get('description')
-    models.update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age,description)
+    name = request.POST.get('name')
+    models.update_profile(request,email,birthday,postcode,travel_dist,interest,min_age,max_age,description,name)
     
     response = render(request,'before_discovery.html')
     response.set_cookie('email',email)

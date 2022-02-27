@@ -9,6 +9,7 @@ def list_recommended_people(email):
         from Users
         where email='{email}';
     """
+    print(sql)
     latitude,longitude,max_radius,interest,min_age,max_age = query(sql)[0]
     
     # get people within interest and age preference

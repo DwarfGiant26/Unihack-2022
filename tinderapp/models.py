@@ -18,19 +18,20 @@ def update_location(email,ip):
     """
     execute(sql)
 
-def update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age,description):
+def update_profile(request,email,birthday,postcode,travel_dist,interest,min_age,max_age,description,name):
     #update sql
-    print(birthday)
     sql = f"""
         update Users
-        set birthday = '{birthday}', 
+        set username = '{name}',
+            birthday = '{birthday}', 
             postcode = '{postcode}',
             max_radius = {travel_dist},
             min_age = {min_age},
             max_age = {max_age},
             interest = '{interest}',
-            description = '{description}'
-        where email = '{email}';
+            description = '{description}',
+            email = '{email}'
+        where email = '{request.COOKIES.get('email')}';
     """
     print(sql)
     execute(sql)
