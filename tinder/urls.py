@@ -31,5 +31,7 @@ urlpatterns = [
     path('dislike',csrf_exempt(views.dislike)),
     path('discovery',views.discovery_page),
     path('profile',views.profile),
-    path('profile_settings',views.profile_settings)
+    path('profile_settings',views.profile_settings),
+    path('chat',views.chat),
+    path('stats',views.stats),
 ]

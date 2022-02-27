@@ -59,6 +59,14 @@ def profile(request):
     }
     return render(request,'profile.html',dic)
 
+def stats(request):
+    dic = {}
+    return render(request,'stats/stats.html',dic)
+
+def chat(request):
+    dic = {}
+    return render(request,'messages/message2.html',dic)
+
 def submit_profile(request):
     email = request.POST.get('email')
     birthday = request.POST.get('birthday')
