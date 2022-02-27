@@ -16,8 +16,8 @@ def list_recommended_people(email):
         select email,interest
         from Users
         where email != '{email}' 
-            and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) >= {min_age}
-            and cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) <= {max_age}     
+            and cast(strftime('%Y', 'now') - strftime('%Y', birthday) as int) >= {min_age}
+            and cast(strftime('%Y', 'now') - strftime('%Y', birthday) as int) <= {max_age}     
     """
     # and (people_who_like is null or not people_who_like like '%email1%');
 

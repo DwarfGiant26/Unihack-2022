@@ -46,7 +46,7 @@ def profile_settings(request,dic=None):
 
 def profile(request):
     sql=f"""
-        select username,interest,cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) as age
+        select username,interest,cast(strftime('%Y', 'now') - strftime('%Y', birthday) as int) as age
         from Users
         where email='{request.COOKIES.get("email")}'
     """
@@ -66,7 +66,8 @@ def submit_profile(request):
     interest = ','.join(request.POST.getlist('interest'))
     min_age = request.POST.get('min_age')
     max_age = request.POST.get('max_age')
-    models.update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age)
+    description = request.POST.get('description')
+    models.update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age,description)
     
     response = render(request,'before_discovery.html')
     response.set_cookie('email',email)
@@ -105,29 +106,28 @@ def style(request):
 def discovered_info(request):
     likeStr = request.COOKIES.get('people_who_like')
     likeList = likeStr.split('-')
-    discovered_index = get_discover_index(request)
+    discovered_index = get_discover_index(request) % int(request.COOKIES.get('num_of_discover'))
     discovered_email = likeList[discovered_index]
     # get info about the person
     sql = f"""
-        select username,interest,email,cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) as age
+        select username,interest,email,cast(strftime('%Y', 'now') - strftime('%Y', birthday) as int) as age,description
         from Users
         where email='{discovered_email}'
     """
     print(sql)
-    name,interest,email,age = query(sql)[0]
+    name,interest,email,age,description = query(sql)[0]
 
     dic = {
         "name":name,
         "interests":interest.replace(',',', '),
         "email":email,
-        "age":age
+        "age":age,
+        "description":description
     }
     
     return dic
 
 def like(request):
-    if get_discover_index(request) >= int(request.COOKIES.get('num_of_discover')):
-        return HttpResponse("No one to discover")
     # Add to like list
     likeFrom = request.COOKIES.get('email')
     dic = discovered_info(request)
@@ -137,8 +137,6 @@ def like(request):
     return response
 
 def dislike(request):
-    if get_discover_index(request) >= int(request.COOKIES.get('num_of_discover')):
-        return HttpResponse("No one to discover")
     dic = discovered_info(request)
     response = render(request,'discovery/discovery.html',dic)
     update_discover_index(request,response)

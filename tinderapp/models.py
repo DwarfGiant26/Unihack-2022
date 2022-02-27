@@ -18,8 +18,9 @@ def update_location(email,ip):
     """
     execute(sql)
 
-def update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age):
+def update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age,description):
     #update sql
+    print(birthday)
     sql = f"""
         update Users
         set birthday = '{birthday}', 
@@ -27,7 +28,8 @@ def update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age)
             max_radius = {travel_dist},
             min_age = {min_age},
             max_age = {max_age},
-            interest = '{interest}'
+            interest = '{interest}',
+            description = '{description}'
         where email = '{email}';
     """
     print(sql)
