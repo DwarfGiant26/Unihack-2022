@@ -30,5 +30,6 @@ def update_profile(email,birthday,postcode,travel_dist,interest,min_age,max_age)
             interest = '{interest}'
         where email = '{email}';
     """
+    print(sql)
     execute(sql)
 

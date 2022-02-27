@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=".css/style.css">
+    <!-- <link rel="stylesheet" href=".css/style.css"> -->
+    <link rel="stylesheet" href="{static '.css/style.css'}">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -15,11 +17,12 @@
     <title>Document</title>
 </head>
 <body class= "bg-image" style="background-image: url('bgimage.png'); height: 100vh">
+    <form action="/submit_profile" method="post">
     <div class="container rounded mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right text-white">
                 <div class="card bg-info" style="background-color: #6AABD2" >
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-white-65">{{user-email}}</span><span> </span></div>
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{%static 'discovery/Person.jpg'%}"><span class="font-weight-bold">{{name}}</span><span class="text-white-65">{{email}}</span><span> </span></div>
                 </div>    
             </div>
             <div class="col-md-5 border-right">
@@ -28,7 +31,7 @@
                         <h4 class="text-right">About You</h4>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-12"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="Enter your full name" value=""></div>
+                        <div class="col-md-12"><label class="labels">Full Name</label><input name="name" type="text" class="form-control" placeholder="Enter your full name" value="{{name}}"></div>
                         
                     </div>
                     
@@ -36,10 +39,11 @@
                         <!-- <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="Enter phone number" value=""></div> -->
                         <!-- <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="Enter address line 1" value=""></div> -->
                         <!-- <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="Enter address line 2" value=""></div> -->
-                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="Enter postcode" value=""></div>
+                        <div class="col-md-12"><label class="labels">Postcode</label><input name="postcode" type="text" class="form-control" placeholder="Enter postcode" value="{{postcode}}"></div>
                         <!-- <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="Enter address line 2" value=""></div> -->
                         <!-- <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="Enter address line 2" value=""></div> -->
-                        <div class="col-md-12 mt-3"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Enter email ID" value=""></div>
+                        <div class="col-md-12 mt-3"><label class="labels">Email</label><input name="email" type="text" class="form-control" placeholder="Enter email ID" value="{{email}}"></div>
+                        <div class="col-md-12 mt-3"><label class="labels">Birthday</label><input name="birthday" type="date" class="form-control" placeholder="Enter email ID" value="{{birthday}}"></div>
                         <!-- <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="Education" value=""></div> -->
                     </div>
                     <div class="row mt-3">
@@ -55,14 +59,14 @@
                         <h4 class="text-left">Teammates preference</h4>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Minimum Age</label><input type="number" class="form-control" placeholder="Age" value=""></div>
-                        <div class="col-md-6"><label class="labels">Maximum Age</label><input type="number" class="form-control" value="" placeholder="Age"></div>
+                        <div class="col-md-6"><label class="labels">Minimum Age</label><input type="number" name="min_age" class="form-control" placeholder="Age" value="{{min_age}}"></div>
+                        <div class="col-md-6"><label class="labels">Maximum Age</label><input type="number" name="max_age" class="form-control" value="{{max_age}}" placeholder="Age"></div>
                     </div>
                     <div class="row mt-3">
                         <!-- <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="Enter phone number" value=""></div> -->
                         <!-- <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="Enter address line 1" value=""></div> -->
                         <!-- <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="Enter address line 2" value=""></div> -->
-                        <div class="col-md-12"><label class="labels">Max Travel Distance</label><input type="number" class="form-control" placeholder="Kms" value=""></div>
+                        <div class="col-md-12"><label class="labels">Max Travel Distance</label><input name="max_dist" type="number" class="form-control" placeholder="Kms" value="{{max_dist}}"></div>
                         <!-- <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="Enter address line 2" value=""></div> -->
                         <!-- <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="Enter address line 2" value=""></div> -->
                         <!-- <div class="col-md-12 mt-3"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Enter email ID" value=""></div> -->
@@ -71,39 +75,39 @@
 
                             <label>Interests</label>
                             
-                            <label class="container">
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>AFL
-                              </label >
+                            <label class="container">AFL
+                                <input type="checkbox" value="AFL" name="interest" checked="checked">
+                                <span class="checkmark"></span>
+                              </label>
                               
-                              <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>Badminton
+                              <label class="container">Badminton
+                                <input type="checkbox" value="Badminton" name="interest">
+                                <span class="checkmark"></span>
                               </label>
 
-                              <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>Basketball
+                              <label class="container">Basketball
+                                <input type="checkbox" value="Basketball" name="interest">
+                                <span class="checkmark"></span>
                               </label>
                               
-                              <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>Jogging
+                              <label class="container">Jogging
+                                <input type="checkbox" value="Jogging" name="interest">
+                                <span class="checkmark"></span>
                               </label>
                               
-                              <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>Soccer
+                              <label class="container">Soccer
+                                <input type="checkbox" value="Soccer" name="interest">
+                                <span class="checkmark"></span>
                               </label>
                               
-                              <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>Surfing
+                              <label class="container">Surfing
+                                <input type="checkbox" value="Surfing" name="interest">
+                                <span class="checkmark"></span>
                               </label>
 
-                              <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>Tennis
+                              <label class="container">Tennis
+                                <input type="checkbox" value="Tennis" name="interest">
+                                <span class="checkmark"></span>
                               </label>
                               
                         </div>
@@ -112,12 +116,15 @@
                         <!-- <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="Country" value=""></div> -->
                         <!-- <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="State"></div> -->
                     </div>
-                    <div class="mt-5 text-center"><button class="btn btn-light profile-button" type="button">Save Profile</button></div>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-light profile-button" type="submit">Save Profile</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
     </div>
+    </form>
 </body>
 </html>

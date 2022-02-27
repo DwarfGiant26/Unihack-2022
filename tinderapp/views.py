@@ -42,7 +42,7 @@ def profile_settings(request,dic=None):
             "min_age":min_age,
             "max_age":max_age
         }
-    return render(request,'ProfileSettings/ProfileSettings.html',dic)
+    return render(request,'ProfileSettings-Arif/profile-settings.html',dic)
 
 def profile(request):
     sql=f"""
@@ -62,7 +62,7 @@ def submit_profile(request):
     email = request.POST.get('email')
     birthday = request.POST.get('birthday')
     postcode = request.POST.get('postcode')
-    travel_dist = request.POST.get('travel_dist')
+    travel_dist = request.POST.get('max_dist')
     interest = ','.join(request.POST.getlist('interest'))
     min_age = request.POST.get('min_age')
     max_age = request.POST.get('max_age')
