@@ -61,7 +61,7 @@ def profile(request):
 
 def stats(request):
     dic = {}
-    return render(request,'stats/stats.html',dic)
+    return render(request,'stats/stats1.html',dic)
 
 def chat(request):
     dic = {}
