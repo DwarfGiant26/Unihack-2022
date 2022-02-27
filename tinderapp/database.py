@@ -1,6 +1,6 @@
 import sqlite3
 
-db_file = "../db.sqlite3"
+db_file = "db.sqlite3"
 
 def create_connection():
     """ create a database connection to the SQLite database

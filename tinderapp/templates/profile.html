@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+{%load static%}
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="nav_bar.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="nav_bar.css"/> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'nav_bar.css'%}"/>
   </head>
 <body style="background-color:rgb(169, 214, 231); text-align: center;">
   <div class="topnav">
     <a class="active" href="#home">Home</a>
     <a href="#news">Preference</a>
-    <a href="#contact">Discovery</a>
-    <a href="#about">Profile</a>
+    <a href="/discovery">Discovery</a>
+    <a href="/profile">Profile</a>
   </div>
   <div style="margin-top: 100px;" class="student-profile py-4">
         <div class="container">
@@ -17,7 +19,7 @@
               <div class="card shadow-sm">
                 <div class="card-header bg-transparent text-center">
                   <img class="profile_img" src="http://placekitten.com/200/300" alt="student dp">
-                  <h3>{{User-name}}</h3>
+                  <h3>{{name}}</h3>
                 </div>
                 <div class="card-body">
                 <!-- Font Awesome Icon Library -->
@@ -35,7 +37,9 @@
 
                   <p class="mb-0"><strong class="pr-1">Distance</strong></p>
                   <p class="mb-0"><strong class="pr-1">Interest</strong></p>
+                  {{interest}}
                   <p>about yourself</p>
+                  Age : {{age}}
                 </div>
               </div>
             </div>

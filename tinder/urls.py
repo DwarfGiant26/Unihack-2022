@@ -29,5 +29,7 @@ urlpatterns = [
     path('submit_profile',csrf_exempt(views.submit_profile)),
     path('like', csrf_exempt(views.like)),
     path('dislike',csrf_exempt(views.dislike)),
-    path('discovery',views.discovery_page)
+    path('discovery',views.discovery_page),
+    path('profile',views.profile),
+    path('profile_settings',views.profile_settings)
 ]

@@ -25,7 +25,38 @@ def signup(request):
     return profile_settings(request,dic)
 
 def profile_settings(request,dic=None):
+    if dic == None:
+        sql=f"""
+            select username,email,password,birthday,postcode,max_radius,interest,min_age,max_age
+            from Users
+            where email='{request.COOKIES.get('email')}'
+        """
+        name,email,password,birthday,postcode,max_radius,interest,min_age,max_age = query(sql)[0]
+        dic = {
+            "name":name,
+            "email":email,
+            "password":password,
+            "birthday":birthday,
+            "postcode":postcode,
+            "max_dist":max_radius,
+            "min_age":min_age,
+            "max_age":max_age
+        }
     return render(request,'ProfileSettings/ProfileSettings.html',dic)
+
+def profile(request):
+    sql=f"""
+        select username,interest,cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) as age
+        from Users
+        where email='{request.COOKIES.get("email")}'
+    """
+    name,interest,age = query(sql)[0]
+    dic={
+        "name":name,
+        "interest":interest,
+        "age":age
+    }
+    return render(request,'profile.html',dic)
 
 def submit_profile(request):
     email = request.POST.get('email')
@@ -78,17 +109,18 @@ def discovered_info(request):
     discovered_email = likeList[discovered_index]
     # get info about the person
     sql = f"""
-        select username,interest,email
+        select username,interest,email,cast(strftime('%d-%m-%Y', 'now') - strftime('%d-%m-%Y', birthday) as int) as age
         from Users
         where email='{discovered_email}'
     """
     print(sql)
-    name,interest,email = query(sql)[0]
+    name,interest,email,age = query(sql)[0]
 
     dic = {
         "name":name,
         "interests":interest.replace(',',', '),
-        "email":email
+        "email":email,
+        "age":age
     }
     
     return dic
